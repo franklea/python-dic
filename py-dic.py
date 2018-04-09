@@ -19,9 +19,12 @@ def query():
     
 
     soup = bs4(content, 'html.parser')
-    ls = soup.body.div.div.div.ul.find_all('li')
-    for child in ls[:-1]:
-        print child.span.string + ' ' + child.strong.string
+    try:
+        ls = soup.body.div.div.div.ul.find_all('li')
+        for child in ls[:-1]:
+            print child.span.string + ' ' + child.strong.string
+    except:
+        print 'Qeury failed...\nPlease check your spelling...'
 
 if __name__ == '__main__':
     while True:
