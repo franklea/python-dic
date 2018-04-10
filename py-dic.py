@@ -19,10 +19,18 @@ def query():
     
 
     soup = bs4(content, 'html.parser')
+
+    # get pronunciation
+    try:
+        ls_pr = soup.body.div.div.div.find_all('span')
+        print '[O] en: ' + ls_pr[1].bdo.string + '; ' + 'us: ' + ls_pr[2].bdo.string
+    except:
+        print 'get pronounciation failed...'
+    
     try:
         ls = soup.body.div.div.div.ul.find_all('li')
         for child in ls[:-1]:
-            print child.span.string + ' ' + child.strong.string
+            print '[*] ' + child.span.string + ' ' + child.strong.string
     except:
         print 'Qeury failed...\nPlease check your spelling...'
 
