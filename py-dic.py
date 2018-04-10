@@ -14,7 +14,7 @@ promot = '''
 def query():
     word = raw_input('\> ')
     if word == '88':
-        print 'Have a good day ~ \nbye~'
+        print '[^_^] Have a good day ~ \n[^_^] bye~'
         exit(0)
     
     print '---------- %s ----------' %(word)
@@ -25,7 +25,7 @@ def query():
         response = urllib2.urlopen(request,timeout=500)
         content = response.read()
     except expression as identifier:
-        print 'query error'
+        print '[^o^] query error'
         exit
     
 
@@ -36,14 +36,14 @@ def query():
         ls_pr = soup.body.div.div.div.find_all('span')
         print '[O] en: ' + ls_pr[1].bdo.string + '; ' + 'us: ' + ls_pr[2].bdo.string
     except:
-        print 'get pronounciation failed...'
+        print '[^o^] get pronounciation failed...'
     
     try:
         ls = soup.body.div.div.div.ul.find_all('li')
         for child in ls[:-1]:
             print '[*] ' + child.span.string + ' ' + child.strong.string
     except:
-        print 'Qeury failed...\nPlease check your spelling...'
+        print '[^o^] Qeury failed...\nPlease check your spelling...'
 
 if __name__ == '__main__':
     print promot
