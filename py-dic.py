@@ -4,8 +4,19 @@
 from bs4 import BeautifulSoup as bs4
 import urllib2
 
+promot = '''
+ ___  _  _  ___  __  __ 
+(  ,\( \/ )(   \(  )/ _)
+ ) _/ \  /  ) ) ))(( (_ 
+(_)  (__/  (___/(__)\__)
+'''
+
 def query():
     word = raw_input('\> ')
+    if word == '88':
+        print 'Have a good day ~ \nbye~'
+        exit(0)
+    
     print '---------- %s ----------' %(word)
     qurl = 'http://dict.cn/' + word
     #print qurl
@@ -35,5 +46,7 @@ def query():
         print 'Qeury failed...\nPlease check your spelling...'
 
 if __name__ == '__main__':
+    print promot
+
     while True:
         query()
