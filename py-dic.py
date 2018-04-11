@@ -14,7 +14,7 @@ promot = '''
 def query():
     word = raw_input('\> ')
     if word == '88':
-        print '[^_^] Have a good day ~ \n[^_^] bye~'
+        print '[^-^] Have a good day ~ \n[^-^] bye~'
         exit(0)
     
     print '---------- %s ----------' %(word)
@@ -40,8 +40,16 @@ def query():
     
     try:
         ls = soup.body.div.div.div.ul.find_all('li')
+        
         for child in ls[:-1]:
-            print '[*] ' + child.span.string + ' ' + child.strong.string
+            res = '[*]'
+            if child.find('span'):
+                res = res + ' ' + child.span.string
+            if child.find('strong'):
+                res = res + ' ' + child.strong.string
+
+            print res
+            #print '[*] ' + child.span.string + ' ' + child.strong.string
     except:
         print '[^o^] Qeury failed...\nPlease check your spelling...'
 
